@@ -2,10 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-html{
-    color: white;
-    background: #131b2e;
-}
+
 body {
     @apply font-sans;
 }

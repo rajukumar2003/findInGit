@@ -1,9 +1,12 @@
 import { FaMapMarkerAlt, FaTwitter, FaLink, FaBuilding } from 'react-icons/fa';
+import useTheme from '../context/theme';
 
 function InfoDisplay({ profileData }) {
+    const { themeMode } = useTheme();
+    
     return (
-        <section className="mt-8 p-6 bg-[#1d2a4a] rounded-lg">
-            <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between">
+        <section className={`mt-8 p-6  rounded-lg shadow-lg ${themeMode === 'dark' ? 'bg-[#1d2a4a] ' : 'bg-white' }`}>
+            <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between ">
                 <img
                     src={profileData.avatar_url}
                     alt="Profile Pic"
@@ -12,7 +15,7 @@ function InfoDisplay({ profileData }) {
                 <div className="flex-1">
                     <div className="flex flex-col md:flex-row justify-between items-start mb-6">
                         <div>
-                            <span className="font-bold text-2xl text-white">{profileData.name}</span>
+                            <span className="font-bold text-2xl">{profileData.name}</span>
                             <div className="text-sm text-[hsl(219,64%,45%)]">@{profileData.login}</div>
                         </div>
                         <div className="text-sm text-[#7f8a9f] mt-2 md:mt-0">
@@ -25,19 +28,19 @@ function InfoDisplay({ profileData }) {
                     </div>
                     <div className="text-[#7f8a9f] mb-6">{profileData.bio || 'No bio available'}</div>
                     {/* ------------------------------ */}
-                    <div className="bg-[#131b2e] p-6 rounded-lg mb-6">
+                    <div className={` p-6 rounded-lg mb-6 shadow-md ${themeMode === 'dark' ? 'bg-[#131b2e]' : 'bg-[#f6f8ff]'}`}>
                         <div className="flex justify-between text-center mx-4">
                             <div>
                                 <div className="text-[#7f8a9f]">Repos</div>
-                                <div className="font-bold text-white">{profileData.public_repos}</div>
+                                <div className="font-bold ">{profileData.public_repos}</div>
                             </div>
                             <div>
                                 <div className="text-[#7f8a9f]">Followers</div>
-                                <div className="font-bold text-white">{profileData.followers}</div>
+                                <div className="font-bold ">{profileData.followers}</div>
                             </div>
                             <div>
                                 <div className="text-[#7f8a9f]">Following</div>
-                                <div className="font-bold text-white">{profileData.following}</div>
+                                <div className="font-bold ">{profileData.following}</div>
                             </div>
                         </div>
                     </div>
