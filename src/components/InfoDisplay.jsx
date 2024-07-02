@@ -5,7 +5,7 @@ function InfoDisplay({ profileData }) {
     const { themeMode } = useTheme();
     
     return (
-        <section className={`mt-8 p-6  rounded-lg shadow-lg ${themeMode === 'dark' ? 'bg-[#1d2a4a] ' : 'bg-white' }`}>
+        <section className={` overflow-hidden mt-8 p-6  rounded-lg shadow-lg ${themeMode === 'dark' ? 'bg-[#1d2a4a] ' : 'bg-white' }`}>
             <div className="flex flex-col md:flex-row items-center md:items-start md:justify-between ">
                 <img
                     src={profileData.avatar_url}
